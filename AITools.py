@@ -9,7 +9,7 @@ class AITools:
         
         boardList = self.getMoveOutcomes(board)
         if self.isGridlock(board, boardList): return 4
-        
+
         scoreList = []
 
         for new in boardList:
@@ -25,6 +25,8 @@ class AITools:
 
         BIGGEST_IN_CORNER = 2000
         HOME_ROWS_DECREASE = 50
+        DIAGONALS_MATCH = 300
+        EMPTY_BONUS = 200
 
         # award points for score increase
         score += newBoard.score - oldBoard.score
@@ -37,6 +39,8 @@ class AITools:
                 if newBoard.state[row][col] > largestTile:
                     largestTile = newBoard.state[row][col]
                     largestTilePos = (row, col)
+                if newBoard.state[row][col] == 0:
+                    score += EMPTY_BONUS
         if largestTilePos == (0, 0):
             score += BIGGEST_IN_CORNER
 
@@ -53,6 +57,13 @@ class AITools:
                         score += HOME_ROWS_DECREASE
                         if newBoard.state[0][2]/2 == newBoard.state[0][3]:
                             score += HOME_ROWS_DECREASE
+
+            if newBoard.state[1][0] == newBoard.state[0][1]:
+                score += DIAGONALS_MATCH
+            if newBoard.state[2][0] == newBoard.state[0][2] == newBoard.state[1][1]:
+                score += DIAGONALS_MATCH
+            if newBoard.state[3][0] == newBoard.state[0][3] == newBoard.state[1][2] == newBoard.state[2][1]:
+                score += DIAGONALS_MATCH
 
         return score
 
