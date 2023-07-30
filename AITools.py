@@ -8,6 +8,8 @@ class AITools:
     def getMove(self, board):
         
         boardList = self.getMoveOutcomes(board)
+        if self.isGridlock(board, boardList): return 4
+        
         scoreList = []
 
         for new in boardList:
@@ -52,10 +54,7 @@ class AITools:
                         if newBoard.state[0][2]/2 == newBoard.state[0][3]:
                             score += HOME_ROWS_DECREASE
 
-        
-
         return score
-
 
     def getMoveOutcomes(self, board: Board):
 
@@ -70,6 +69,12 @@ class AITools:
         boardRight.slide_right()
 
         return [boardUp, boardDown, boardLeft, boardRight]
+    
+    def isGridlock(self, originalBoard: Board, boardList: [Board]):
+        for board in boardList:
+            if board.state != originalBoard.state:
+                return False
+        return True
 
 tester = AITools()
 
