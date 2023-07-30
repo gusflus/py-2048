@@ -110,3 +110,7 @@ class Board:
         if empty_cells:
             i, j = random.choice(empty_cells)
             self.state[i][j] = 2 if random.random() < 0.9 else 4
+
+    def prettyprint(self):
+        for row in self.state:
+            print(row)
