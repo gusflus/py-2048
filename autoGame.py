@@ -92,32 +92,6 @@ while running:
     elif suggestion == "Right":
         board.slide_right() and board._generate_new_tile()
 
-
-    # if not pressed_up and keys[pygame.K_w]:
-    #     board.slide_up() and board._generate_new_tile()
-    #     pressed_up = True
-
-    # elif not keys[pygame.K_w]:
-    #     pressed_up = False
-
-    # if not pressed_down and keys[pygame.K_s]:
-    #     board.slide_down() and board._generate_new_tile()
-    #     pressed_down = True
-    # elif not keys[pygame.K_s]:
-    #     pressed_down = False
-
-    # if not pressed_left and keys[pygame.K_a]:
-    #     board.slide_left() and board._generate_new_tile()
-    #     pressed_left = True
-    # elif not keys[pygame.K_a]:
-    #     pressed_left = False
-
-    # if not pressed_right and keys[pygame.K_d]:
-    #     board.slide_right() and board._generate_new_tile()
-    #     pressed_right = True
-    # elif not keys[pygame.K_d]:
-    #     pressed_right = False
-
     if not pressed_r and keys[pygame.K_r]:
         board.reset()
         board._generate_new_tile()
