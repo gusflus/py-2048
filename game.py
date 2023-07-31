@@ -30,7 +30,7 @@ tile_colors = {
     2048: (237, 194, 46),
 }
 
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+# player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 def draw_tile(y, x, value):
     pygame.draw.rect(screen, (199, 199, 199), pygame.Rect(35 + 110 * x, 135 + 110 * y, 100, 100))

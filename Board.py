@@ -1,6 +1,7 @@
 import random
 
 class Board:
+
     def __init__(self):
         self.state = [[0 for _ in range(4)] for _ in range(4)]
         self.score = 0
@@ -12,10 +13,6 @@ class Board:
         self.score = 0
         self.game_over = False
         self.won = False
-
-
-    # can you make a function that slides the 2048 board up?
-
 
     def slide_up(self):
         move_occurred = False
@@ -110,6 +107,28 @@ class Board:
         if empty_cells:
             i, j = random.choice(empty_cells)
             self.state[i][j] = 2 if random.random() < 0.9 else 4
+
+    def is_deadlocked(self):
+        for row in range(4):
+            for col in range(4):
+                if self.state[row][col] == 0:
+                    return False
+                if row > 0 and self.state[row][col] == self.state[row - 1][col]:
+                    return False
+                if row < 3 and self.state[row][col] == self.state[row + 1][col]:
+                    return False
+                if col > 0 and self.state[row][col] == self.state[row][col - 1]:
+                    return False
+                if col < 3 and self.state[row][col] == self.state[row][col + 1]:
+                    return False
+        return True
+    
+    def is_won(self):
+        for row in range(4):
+            for col in range(4):
+                if self.state[row][col] == 2048:
+                    return True
+        return False
 
     def prettyprint(self):
         for row in self.state:
