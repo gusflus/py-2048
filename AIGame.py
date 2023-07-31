@@ -101,7 +101,7 @@ class Game2048AI:
         pygame.draw.rect(self.display, (148, 148, 148), pygame.Rect(25, 125, 450, 450))
         for i in range(4):
             for j in range(4):
-                self.draw_tile(i, j, self.board.state[i][j])
+                self._draw_tile(i, j, self.board.state[i][j])
 
         pygame.display.flip()
 
