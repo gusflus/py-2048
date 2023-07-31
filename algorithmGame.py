@@ -1,6 +1,6 @@
 import pygame
 from Board import Board
-from AITools import AITools
+from AlgoTools import AlgoTools
 
 pygame.init()
 screen = pygame.display.set_mode((500, 600))
@@ -47,7 +47,7 @@ def draw_tile(y, x, value):
         textRect.center = (35 + 110 * x + 50, 135 + 110 * y + 50)
         screen.blit(text, textRect)
 
-moveMaker = AITools()
+moveMaker = AlgoTools()
 
 games = 15
 

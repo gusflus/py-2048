@@ -1,7 +1,7 @@
 from Board import Board
 import copy
 
-class AITools:
+class AlgoTools:
     def __init__(self):
         pass
 
@@ -87,7 +87,7 @@ class AITools:
                 return False
         return True
 
-tester = AITools()
+tester = AlgoTools()
 
 board = Board()
 board.state =  [[0, 0, 0, 0],
